@@ -28,6 +28,28 @@ int menu() {
     return choice;
 }
 
+int read_file(char* fname, struct product* prod) {
+    FILE* f;
+    fopen(fname, "r");
+
+    if (f == NULL) return -1;
+
+    fclose(f);
+    return 0;
+}
+
+void display() {
+
+}
+
+void sale() {
+
+}
+
+void update() {
+
+}
+
 int main() {
     // Sales program
     // Read text files
@@ -43,7 +65,7 @@ int main() {
         case 3:
             break;
         case 0:
-            break;
+            return 0;
         default:
             break;
     }
