@@ -39,15 +39,15 @@ int read_file(char* fname, struct product* prod) {
 }
 
 void display() {
-
+    printf("Display");
 }
 
 void sale() {
-
+    printf("Sale");
 }
 
 void update() {
-
+    printf("Update");
 }
 
 int main() {
@@ -55,20 +55,31 @@ int main() {
     // Read text files
     // Update text files
 
+    
     int choice = menu();
-
-    switch (choice) {
+    do {
+        switch (choice) {
         case 1:
+            display();
+            choice = menu();
             break;
         case 2:
+            sale();
+            choice = menu();
             break;
         case 3:
+            update();
+            choice = menu();
             break;
         case 0:
             return 0;
         default:
+            printf("Unknown option\n");
+            choice = menu();
             break;
-    }
+        }
+    } while (choice != 0);
+    
 
     return 0;
 }
