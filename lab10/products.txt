@@ -1,0 +1,4 @@
+Coke 15 20
+Water 10 30
+Bread 25 12
+ddd 55 55
