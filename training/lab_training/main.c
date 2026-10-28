@@ -38,8 +38,10 @@ int read_file(char* fname, struct product* prod) {
     return 0;
 }
 
-void display() {
-    printf("Display");
+void display(struct product* prod) {
+    printf("-------------------------------------------\n");
+    printf("%-10s %-15s %-10s %-10s\n", "ID", "NAME", "PRICE", "STOCK");
+    printf("-------------------------------------------\n");
 }
 
 void sale() {
@@ -55,12 +57,13 @@ int main() {
     // Read text files
     // Update text files
 
+    struct product* prod;
     
     int choice = menu();
     do {
         switch (choice) {
         case 1:
-            display();
+            display(prod);
             choice = menu();
             break;
         case 2:
