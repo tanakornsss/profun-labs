@@ -58,11 +58,13 @@ int main() {
     // Update text files
 
     struct product* prod;
+    struct product* prod;
     
     int choice = menu();
     do {
         switch (choice) {
         case 1:
+            display(prod);
             display(prod);
             choice = menu();
             break;
