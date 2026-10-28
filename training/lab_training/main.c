@@ -40,11 +40,16 @@ int read_file(char* fname, struct product* prod) {
 }
 
 void display(struct product* prod, int cnt) {
+    printf("Items: %d\n", cnt);
+
     printf("-------------------------------------------\n");
     printf("%-10s %-15s %-10s %-10s\n", "ID", "NAME", "PRICE", "STOCK");
     printf("-------------------------------------------\n");
 
-    printf("Items: %d\n", cnt);
+    for (int i = 0; i < cnt; i++) {
+        struct product p = prod[i];
+        printf("%-10d %-15s %-10.2f %-10d\n", p.id, p.name, p.price, p.unit);
+    }
 }
 
 void sale() {
