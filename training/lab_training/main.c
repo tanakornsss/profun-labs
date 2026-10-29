@@ -34,6 +34,12 @@ int read_file(char* fname, struct product* prod) {
 
     if (f == NULL) return 0;
 
+    char buf[256];
+    
+    while(fgets(buf, sizeof(buf), f)) {
+        printf("%s", buf);
+    }
+
     fclose(f);
     return 1;
 }
@@ -42,8 +48,8 @@ int write_file(char* fname, struct product* prod) {
     
 }
 
-void display(struct product* prod, int cnt) {
-    if (read_file("test.txt", prod)) {
+void display(struct product* prod, int cnt, char* fname) {
+    if (read_file(fname, prod)) {
         printf("File found\n");
     }
     else {
@@ -89,11 +95,13 @@ int main() {
 
     int items_cnt = sizeof(prod) / sizeof(prod[0]);
     
+    char fname[] = "test.txt";
+
     int choice = menu();
     do {
         switch (choice) {
         case 1:
-            display(prod, items_cnt);
+            display(prod, items_cnt, fname);
             choice = menu();
             break;
         case 2:
