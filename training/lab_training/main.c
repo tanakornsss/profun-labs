@@ -30,16 +30,26 @@ int menu() {
 }
 
 int read_file(char* fname, struct product* prod) {
-    FILE* f;
-    fopen(fname, "r");
+    FILE* f = fopen(fname, "r");
 
-    if (f == NULL) return -1;
+    if (f == NULL) return 0;
 
     fclose(f);
-    return 0;
+    return 1;
+}
+
+int write_file(char* fname, struct product* prod) {
+    
 }
 
 void display(struct product* prod, int cnt) {
+    if (read_file("test.txt", prod)) {
+        printf("File found\n");
+    }
+    else {
+        printf("File not found\n");
+    }
+
     printf("Items: %d\n", cnt);
 
     printf("-------------------------------------------\n");
