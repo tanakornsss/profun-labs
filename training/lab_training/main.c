@@ -38,12 +38,22 @@ int read_file(char* fname, struct product* prod) {
 
     int line_cnt = 0;
 
+    // Separate lines
     while(fgets(buf, sizeof(buf), f)) {
+        // Tokenize words
         char* token = strtok(buf, ",");
+        char prod_temp[4][32];
+        int i = 0;
         while (token != NULL) {
-            printf("%s\n", token);
+            strcpy(prod_temp[i], token);
             token = strtok(NULL, ",");
+            i++;
         }
+
+        for (int i = 0; i < 4; i++) {
+            printf("%s\n", prod_temp[i]);
+        }
+
         line_cnt++;
     }
     printf("\n");
