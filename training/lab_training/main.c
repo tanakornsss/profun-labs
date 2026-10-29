@@ -39,7 +39,11 @@ int read_file(char* fname, struct product* prod) {
     int line_cnt = 0;
 
     while(fgets(buf, sizeof(buf), f)) {
-        printf("%s", buf);
+        char* token = strtok(buf, ",");
+        while (token != NULL) {
+            printf("%s\n", token);
+            token = strtok(NULL, ",");
+        }
         line_cnt++;
     }
     printf("\n");
