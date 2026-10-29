@@ -35,10 +35,16 @@ int read_file(char* fname, struct product* prod) {
     if (f == NULL) return 0;
 
     char buf[256];
-    
+
+    int line_cnt = 0;
+
     while(fgets(buf, sizeof(buf), f)) {
         printf("%s", buf);
+        line_cnt++;
     }
+    printf("\n");
+
+    printf("Line count: %d\n", line_cnt);
 
     fclose(f);
     return 1;
